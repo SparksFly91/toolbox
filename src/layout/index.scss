@@ -1,0 +1,56 @@
+@use "@/assets/theme/_variables.scss" as *;
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-layout);
+
+  .layout-sider {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset-block: 0;
+    inset-inline-start: 0;
+    z-index: 10;
+    width: $sider-width;
+    background-color: var(--sider-bg);
+    border-inline-end: 1px solid var(--split-color);
+    transition: width 0.2s ease;
+
+    &.is-collapsed {
+      width: $sider-collapsed-width;
+
+      .app-logo .logo-title {
+        display: none;
+      }
+    }
+
+    .sider-menu {
+      flex: 1;
+      overflow: auto;
+      background-color: transparent;
+      border-inline-end: none;
+    }
+  }
+
+  .layout-main {
+    flex: 1;
+    min-width: 0;
+    margin-inline-start: $sider-width;
+    display: flex;
+    flex-direction: column;
+    transition: margin 0.2s ease;
+
+    &.is-collapsed {
+      margin-inline-start: $sider-collapsed-width;
+    }
+  }
+
+  &.is-top {
+    display: block;
+
+    .layout-main {
+      margin-inline-start: 0;
+    }
+  }
+}
