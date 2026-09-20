@@ -15,6 +15,9 @@ export interface Schema {
   app: {
     title: string
     description: string
+    search_placeholder: string
+    theme_toggle_dark: string
+    theme_toggle_light: string
   }
   menu: {
     home: string

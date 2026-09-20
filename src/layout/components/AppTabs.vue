@@ -4,7 +4,7 @@
       <div v-for="tab in tabStore.tabs" :key="tab.path" class="tab-item flex-center gap-1 cursor-pointer select-none"
         :class="{ 'is-active': tab.path === route.path }" @click="router.push(tab.path)"
         @contextmenu.prevent="openContextMenu($event, tab)">
-        <span>{{ t(String(tab.titleKey ?? (tab as any).title ?? "")) }}</span>
+        <span>{{ tabLabel(tab) }}</span>
         <CloseOutlined v-if="!tab.affix" class="tab-close text-xs" @click.stop="closeTab(tab.path)" />
       </div>
     </div>
@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, watch } from "vue"
+import { reactive, computed, watch } from "vue"
 import { useRoute, useRouter } from "vue-router"
 import { CloseOutlined } from "@ant-design/icons-vue"
 import { useAppStore } from "@/stores/app"
@@ -48,6 +48,22 @@ watch(
   },
   { immediate: true }
 )
+
+/** 路由 name → titleKey 映射（兼容旧持久化数据中无 titleKey 的标签） */
+const titleKeyMap = computed<Record<string, string>>(() => {
+  const map: Record<string, string> = {}
+  const walk = (routes: readonly any[]) =>
+    routes.forEach(r => {
+      if (r.meta?.titleKey && r.name) map[String(r.name)] = String(r.meta.titleKey)
+      if (r.children?.length) walk(r.children)
+    })
+  walk(router.options.routes)
+  return map
+})
+
+function tabLabel(tab: TabItem): string {
+  return t(tab.titleKey ?? titleKeyMap.value[tab.name] ?? tab.name)
+}
 
 function closeTab(path: string) {
   const index = tabStore.tabs.findIndex(t => t.path === path)

@@ -10,14 +10,19 @@
   },
   "app": {
     "title": "万能工具箱",
-    "description": "集成常见开发工具的客户端工具箱"
+    "description": "集成常见开发工具的客户端工具箱",
+    "search_placeholder": "搜索菜单",
+    "theme_toggle_dark": "切换暗色主题",
+    "theme_toggle_light": "切换亮色主题"
   },
   "menu": {
     "home": "首页",
     "tools": "工具箱",
     "tools_json": "JSON 格式化",
     "tools_regex": "正则测试",
-    "settings": "系统设置"
+    "settings": "系统设置",
+    "imgtools": "图片工具",
+    "imgtools_format": "格式转换"
   },
   "layout": {
     "collapse": "折叠侧边栏",

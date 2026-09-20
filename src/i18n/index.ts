@@ -9,9 +9,7 @@ const i18n = createI18n({
   legacy: false,
   locale: DEFAULT_LOCALE,
   fallbackLocale: DEFAULT_LOCALE,
-  messages: {
-    [DEFAULT_LOCALE]: {},
-  },
+  messages: {},
   missingWarn: import.meta.env.DEV,
   fallbackWarn: false,
 })
@@ -24,6 +22,9 @@ const composer = i18n.global as unknown as Composer<{
 
 /** 当前生效的 ant-design-vue 语言包（App.vue 中下发给 ConfigProvider） */
 export const antdLocale = ref((await ANTD_LOCALES[DEFAULT_LOCALE]()).default)
+
+/** 默认语言消息立即加载（否则默认 locale 无文案，全部显示 key） */
+i18n.global.setLocaleMessage(DEFAULT_LOCALE, (await MESSAGES[DEFAULT_LOCALE]()).default as Schema)
 
 /** 已完成懒加载缓存的语言 */
 const loaded = new Set<string>([DEFAULT_LOCALE])

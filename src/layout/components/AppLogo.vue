@@ -6,11 +6,13 @@
       <rect x="2" y="13" width="9" height="9" rx="2" fill="currentColor" opacity="0.55" />
       <rect x="13" y="13" width="9" height="9" rx="2" fill="currentColor" opacity="0.75" />
     </svg>
-    <span class="logo-title">万能工具箱</span>
+    <span class="logo-title">{{ t("app.title") }}</span>
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from "@/i18n"
+
 defineProps<{ collapsed?: boolean }>()
 </script>
 

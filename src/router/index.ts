@@ -42,10 +42,24 @@ const routes: RouteRecordRaw[] = [
         ],
       },
       {
+        path: "/imgtools",
+        name: "ImgTools",
+        redirect: "/imgtools/format",
+        meta: { titleKey: "menu.imgtools", icon: "PictureOutlined" },
+        children: [
+          {
+            path: "/imgtools/format",
+            name: "format",
+            component: () => import("@/views/imgtools/Format.vue"),
+            meta: { titleKey: "menu.imgtools_format", icon: "FileJpgOutlined" },
+          },
+        ],
+      },
+      {
         path: "/settings",
         name: "settings",
         component: () => import("@/views/settings/index.vue"),
-        meta: { titleKey: "menu.settings", icon: "SettingOutlined" },
+        meta: { titleKey: "menu.settings", icon: "SettingOutlined", hidden: true },
       },
     ],
   },

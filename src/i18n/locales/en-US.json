@@ -10,14 +10,19 @@
   },
   "app": {
     "title": "ToolBox",
-    "description": "A client toolbox packing common dev tools"
+    "description": "A client toolbox packing common dev tools",
+    "search_placeholder": "Search Menu",
+    "theme_toggle_dark": "Switch to Dark Theme",
+    "theme_toggle_light": "Switch to Light Theme"
   },
   "menu": {
     "home": "Home",
     "tools": "Toolbox",
     "tools_json": "JSON Formatter",
     "tools_regex": "Regex Tester",
-    "settings": "Settings"
+    "settings": "Settings",
+    "imgtools": "Image Tools",
+    "imgtools_format": "Format Converter"
   },
   "layout": {
     "collapse": "Collapse sidebar",
