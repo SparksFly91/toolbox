@@ -9,6 +9,7 @@ import { useRoute, useRouter } from "vue-router"
 import * as Icons from "@ant-design/icons-vue"
 import type { ItemType } from "ant-design-vue"
 import { useAppStore } from "@/stores/app"
+import { t } from "@/i18n"
 
 const props = withDefaults(
   defineProps<{ mode?: "inline" | "horizontal" }>(),
@@ -33,7 +34,7 @@ function toItems(routes: any[]): ItemType[] {
       return {
         key: r.redirect ? (children[0]?.path ?? r.path) : r.path,
         icon: icon(r.meta?.icon) ?? undefined,
-        label: r.meta?.title ?? r.name,
+        label: t(String(r.meta?.titleKey ?? r.meta?.title ?? r.name)),
         children: children.length ? toItems(children) : undefined,
       } as ItemType
     })

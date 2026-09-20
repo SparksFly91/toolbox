@@ -1,5 +1,6 @@
 import { defineStore } from "pinia"
 import type { AppSettingState } from "@/types"
+import { setLocale as applyLocale } from "@/i18n"
 
 export const DEFAULT_SETTINGS: AppSettingState = {
   layoutMode: "side",
@@ -9,6 +10,7 @@ export const DEFAULT_SETTINGS: AppSettingState = {
   showTabs: true,
   tabStyle: "card",
   siderCollapsed: false,
+  locale: "zh-CN",
 }
 
 export const defaultSettings = (): AppSettingState => ({ ...DEFAULT_SETTINGS })
@@ -21,6 +23,10 @@ export const useAppStore = defineStore("app", {
     },
     toggleSider() {
       this.siderCollapsed = !this.siderCollapsed
+    },
+    async setLocale(locale: string) {
+      await applyLocale(locale)
+      this.locale = locale
     },
     reset() {
       Object.assign(this, defaultSettings())

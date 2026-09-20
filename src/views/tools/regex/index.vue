@@ -1,16 +1,19 @@
 <template>
-  <a-card title="正则测试">
+  <a-card :title="t('menu.tools_regex')">
     <a-typography-paragraph type="secondary">
-      KeepAlive 计数：{{ count }} <a-button size="small" class="ml-2" @click="count++">+1</a-button>
+      {{ t("tools.keepalive_hint") }}：{{ count }}
+      <a-button size="small" class="ml-2" @click="count++">+1</a-button>
     </a-typography-paragraph>
     <a-form layout="vertical">
-      <a-form-item label="正则表达式">
-        <a-input v-model:value="pattern" placeholder="例如：\\d+" />
+      <a-form-item :label="t('tools.regex_pattern')">
+        <a-input v-model:value="pattern" placeholder="\\d+" />
       </a-form-item>
-      <a-form-item label="测试文本">
+      <a-form-item :label="t('tools.regex_text')">
         <a-textarea v-model:value="text" :rows="4" />
       </a-form-item>
-      <a-button type="primary" :disabled="!pattern" @click="test">执行匹配</a-button>
+      <a-button type="primary" :disabled="!pattern" @click="test">
+        {{ t("tools.regex_execute") }}
+      </a-button>
     </a-form>
     <a-alert v-if="error" class="mt-3" type="error" :message="error" show-banner />
     <a-tag v-for="(m, i) in matches" :key="i" class="mt-3">{{ m }}</a-tag>
@@ -19,6 +22,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
+import { t } from "@/i18n"
 
 defineOptions({ name: "regex" })
 

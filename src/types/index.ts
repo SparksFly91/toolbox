@@ -1,7 +1,8 @@
 export interface TabItem {
   path: string
   name: string
-  title: string
+  /** i18n key（menu.*），渲染时经 t() 翻译，切换语言即时生效 */
+  titleKey: string
   /** affix 标签不可关闭 */
   affix?: boolean
 }
@@ -18,6 +19,7 @@ export interface AppSettingState {
   showTabs: boolean
   tabStyle: TabStyle
   siderCollapsed: boolean
+  locale: string
 }
 
 /** 经典色板 */

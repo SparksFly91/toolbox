@@ -4,7 +4,7 @@
       <div v-for="tab in tabStore.tabs" :key="tab.path" class="tab-item flex-center gap-1 cursor-pointer select-none"
         :class="{ 'is-active': tab.path === route.path }" @click="router.push(tab.path)"
         @contextmenu.prevent="openContextMenu($event, tab)">
-        <span>{{ tab.title }}</span>
+        <span>{{ t(String(tab.titleKey ?? (tab as any).title ?? "")) }}</span>
         <CloseOutlined v-if="!tab.affix" class="tab-close text-xs" @click.stop="closeTab(tab.path)" />
       </div>
     </div>
@@ -12,9 +12,9 @@
     <Teleport to="body">
       <div v-if="ctxMenu.visible" class="ctx-menu" :style="{ left: `${ctxMenu.x}px`, top: `${ctxMenu.y}px` }"
         @click.stop>
-        <div class="ctx-item" @click="ctxAction('close')">关闭当前</div>
-        <div class="ctx-item" @click="ctxAction('closeOther')">关闭其他</div>
-        <div class="ctx-item" @click="ctxAction('closeAll')">关闭全部</div>
+        <div class="ctx-item" @click="ctxAction('close')">{{ t("common.closeCurrent") }}</div>
+        <div class="ctx-item" @click="ctxAction('closeOther')">{{ t("common.closeOther") }}</div>
+        <div class="ctx-item" @click="ctxAction('closeAll')">{{ t("common.closeAll") }}</div>
       </div>
     </Teleport>
   </div>
@@ -26,6 +26,7 @@ import { useRoute, useRouter } from "vue-router"
 import { CloseOutlined } from "@ant-design/icons-vue"
 import { useAppStore } from "@/stores/app"
 import { useTabStore, HOME_PATH } from "@/stores/tab"
+import { t } from "@/i18n"
 import type { TabItem } from "@/types"
 
 const route = useRoute()
@@ -36,12 +37,12 @@ const tabStore = useTabStore()
 watch(
   () => route.path,
   path => {
-    const meta = route.meta as { title?: string; affix?: boolean }
-    if (!meta?.title || route.name === "not-found") return
+    const meta = route.meta as { titleKey?: string; affix?: boolean }
+    if (!meta?.titleKey || route.name === "not-found") return
     tabStore.addTab({
       path,
       name: String(route.name),
-      title: meta.title,
+      titleKey: meta.titleKey,
       affix: meta.affix ?? path === HOME_PATH,
     })
   },

@@ -1,0 +1,59 @@
+{
+  "common": {
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "close": "Close",
+    "closeOther": "Close Other",
+    "closeAll": "Close All",
+    "closeCurrent": "Close Current",
+    "refresh": "Refresh"
+  },
+  "app": {
+    "title": "ToolBox",
+    "description": "A client toolbox packing common dev tools"
+  },
+  "menu": {
+    "home": "Home",
+    "tools": "Toolbox",
+    "tools_json": "JSON Formatter",
+    "tools_regex": "Regex Tester",
+    "settings": "Settings"
+  },
+  "layout": {
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar"
+  },
+  "setting": {
+    "title": "Theme Settings",
+    "theme": "Theme",
+    "theme_light": "Light",
+    "theme_dark": "Dark",
+    "theme_auto": "System",
+    "layout": "Menu Layout",
+    "layout_side": "Side Menu",
+    "layout_top": "Top Menu",
+    "primaryColor": "Primary Color",
+    "switches": "Feature Switches",
+    "showBreadcrumb": "Show Breadcrumb",
+    "showTabs": "Show Tabs",
+    "tabStyle": "Tab Style",
+    "tabStyle_card": "Card",
+    "tabStyle_chip": "Chip",
+    "reset": "Reset to Default",
+    "language": "Language"
+  },
+  "error": {
+    "404_title": "404",
+    "404_desc": "Page Not Found",
+    "backHome": "Back to Home"
+  },
+  "tools": {
+    "json_input_placeholder": "Enter JSON string",
+    "json_format_btn": "Format",
+    "json_output": "Formatted result",
+    "regex_pattern": "Pattern",
+    "regex_text": "Test text",
+    "regex_execute": "Match",
+    "keepalive_hint": "Counter to test KeepAlive cache"
+  }
+}

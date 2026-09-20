@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
 
 export interface AppRouteMeta {
-  title?: string
+  /** i18n key（menu.*），用于菜单 / 面包屑 / 标签页展示 */
+  titleKey?: string
   icon?: string
   hidden?: boolean
   affix?: boolean
@@ -18,25 +19,25 @@ const routes: RouteRecordRaw[] = [
         path: "/home",
         name: "home",
         component: () => import("@/views/home/index.vue"),
-        meta: { title: "首页", icon: "HomeOutlined", affix: true },
+        meta: { titleKey: "menu.home", icon: "HomeOutlined", affix: true },
       },
       {
         path: "/tools",
         name: "tools",
         redirect: "/tools/json",
-        meta: { title: "工具箱", icon: "ToolOutlined" },
+        meta: { titleKey: "menu.tools", icon: "ToolOutlined" },
         children: [
           {
             path: "/tools/json",
             name: "json",
             component: () => import("@/views/tools/json/index.vue"),
-            meta: { title: "JSON 格式化", icon: "CodeOutlined" },
+            meta: { titleKey: "menu.tools_json", icon: "CodeOutlined" },
           },
           {
             path: "/tools/regex",
             name: "regex",
             component: () => import("@/views/tools/regex/index.vue"),
-            meta: { title: "正则测试", icon: "SearchOutlined" },
+            meta: { titleKey: "menu.tools_regex", icon: "SearchOutlined" },
           },
         ],
       },
@@ -44,7 +45,7 @@ const routes: RouteRecordRaw[] = [
         path: "/settings",
         name: "settings",
         component: () => import("@/views/settings/index.vue"),
-        meta: { title: "系统设置", icon: "SettingOutlined" },
+        meta: { titleKey: "menu.settings", icon: "SettingOutlined" },
       },
     ],
   },

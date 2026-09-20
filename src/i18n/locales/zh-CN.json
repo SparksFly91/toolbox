@@ -1,0 +1,59 @@
+{
+  "common": {
+    "confirm": "确认",
+    "cancel": "取消",
+    "close": "关闭",
+    "closeOther": "关闭其他",
+    "closeAll": "关闭全部",
+    "closeCurrent": "关闭当前",
+    "refresh": "刷新"
+  },
+  "app": {
+    "title": "万能工具箱",
+    "description": "集成常见开发工具的客户端工具箱"
+  },
+  "menu": {
+    "home": "首页",
+    "tools": "工具箱",
+    "tools_json": "JSON 格式化",
+    "tools_regex": "正则测试",
+    "settings": "系统设置"
+  },
+  "layout": {
+    "collapse": "折叠侧边栏",
+    "expand": "展开侧边栏"
+  },
+  "setting": {
+    "title": "主题设置",
+    "theme": "主题",
+    "theme_light": "亮色",
+    "theme_dark": "暗色",
+    "theme_auto": "跟随系统",
+    "layout": "菜单布局",
+    "layout_side": "侧边菜单",
+    "layout_top": "顶部菜单",
+    "primaryColor": "主题色",
+    "switches": "功能开关",
+    "showBreadcrumb": "展示面包屑",
+    "showTabs": "展示标签页",
+    "tabStyle": "标签页样式",
+    "tabStyle_card": "卡片",
+    "tabStyle_chip": "圆角",
+    "reset": "恢复默认设置",
+    "language": "语言"
+  },
+  "error": {
+    "404_title": "404",
+    "404_desc": "页面不存在",
+    "backHome": "回到首页"
+  },
+  "tools": {
+    "json_input_placeholder": "输入 JSON 字符串",
+    "json_format_btn": "格式化",
+    "json_output": "格式化结果",
+    "regex_pattern": "正则表达式",
+    "regex_text": "测试文本",
+    "regex_execute": "执行匹配",
+    "keepalive_hint": "计数器测试 KeepAlive 缓存"
+  }
+}

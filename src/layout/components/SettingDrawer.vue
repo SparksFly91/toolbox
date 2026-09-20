@@ -7,9 +7,9 @@
     <SettingOutlined class="text-lg" />
   </div>
 
-  <a-drawer v-model:open="open" title="主题设置" placement="right" :width="320">
+  <a-drawer v-model:open="open" :title="t('setting.title')" placement="right" :width="320">
     <div class="setting-group">
-      <div class="group-title">主题</div>
+      <div class="group-title">{{ t("setting.theme") }}</div>
       <a-segmented
         :value="appStore.themeMode"
         block
@@ -19,7 +19,7 @@
     </div>
 
     <div class="setting-group">
-      <div class="group-title">菜单布局</div>
+      <div class="group-title">{{ t("setting.layout") }}</div>
       <a-segmented
         :value="appStore.layoutMode"
         block
@@ -29,7 +29,7 @@
     </div>
 
     <div class="setting-group">
-      <div class="group-title">主题色</div>
+      <div class="group-title">{{ t("setting.primaryColor") }}</div>
       <div class="color-grid">
         <template v-for="preset in COLOR_PRESETS" :key="preset.value">
           <div
@@ -53,9 +53,9 @@
     </div>
 
     <div class="setting-group">
-      <div class="group-title">功能开关</div>
+      <div class="group-title">{{ t("setting.switches") }}</div>
       <div class="switch-row flex-between">
-        <span>展示面包屑</span>
+        <span>{{ t("setting.showBreadcrumb") }}</span>
         <a-switch
           :checked="appStore.showBreadcrumb"
           size="small"
@@ -63,7 +63,7 @@
         />
       </div>
       <div class="switch-row flex-between">
-        <span>展示标签页</span>
+        <span>{{ t("setting.showTabs") }}</span>
         <a-switch
           :checked="appStore.showTabs"
           size="small"
@@ -73,44 +73,60 @@
     </div>
 
     <div class="setting-group">
-      <div class="group-title">标签页样式</div>
+      <div class="group-title">{{ t("setting.tabStyle") }}</div>
       <a-radio-group
         :value="appStore.tabStyle"
         block
         button-style="solid"
         @change="(e: any) => appStore.update({ tabStyle: e.target.value as TabStyle })"
       >
-        <a-radio-button value="card">卡片</a-radio-button>
-        <a-radio-button value="chip">圆角</a-radio-button>
+        <a-radio-button value="card">{{ t("setting.tabStyle_card") }}</a-radio-button>
+        <a-radio-button value="chip">{{ t("setting.tabStyle_chip") }}</a-radio-button>
       </a-radio-group>
     </div>
 
+    <div class="setting-group">
+      <div class="group-title">{{ t("setting.language") }}</div>
+      <a-segmented
+        :value="appStore.locale"
+        block
+        :options="localeOptions"
+        @change="(v: any) => appStore.setLocale(v)"
+      />
+    </div>
+
     <a-button class="mt-6" block @click="appStore.reset">
-      <RedoOutlined /> 恢复默认设置
+      <RedoOutlined /> {{ t("setting.reset") }}
     </a-button>
   </a-drawer>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { computed, ref } from "vue"
 import { SettingOutlined, CheckOutlined, RedoOutlined } from "@ant-design/icons-vue"
 import { useAppStore } from "@/stores/app"
 import { COLOR_PRESETS } from "@/types"
 import type { TabStyle } from "@/types"
+import { t } from "@/i18n"
+import { SUPPORTED } from "@/i18n/locales"
 
 const appStore = useAppStore()
 const open = ref(false)
 
-const themeOptions = [
-  { label: "亮色", value: "light" },
-  { label: "暗色", value: "dark" },
-  { label: "跟随系统", value: "auto" },
-]
+const themeOptions = computed(() => [
+  { label: t("setting.theme_light"), value: "light" },
+  { label: t("setting.theme_dark"), value: "dark" },
+  { label: t("setting.theme_auto"), value: "auto" },
+])
 
-const layoutOptions = [
-  { label: "侧边菜单", value: "side" },
-  { label: "顶部菜单", value: "top" },
-]
+const layoutOptions = computed(() => [
+  { label: t("setting.layout_side"), value: "side" },
+  { label: t("setting.layout_top"), value: "top" },
+])
+
+const localeOptions = computed(() =>
+  SUPPORTED.map(o => ({ label: o.label, value: o.value }))
+)
 
 function onCustomColor(v: any) {
   const hex = typeof v === "string" ? v : v?.toHexString?.() ?? appStore.primaryColor

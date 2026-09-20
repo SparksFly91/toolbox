@@ -6,7 +6,7 @@ export const HOME_PATH = "/"
 export const useTabStore = defineStore("tab", {
   state: () => ({
     tabs: [
-      // { path: HOME_PATH, name: "home", title: "首页", affix: true },
+      { path: HOME_PATH, name: "home", titleKey: "menu.home", affix: true },
     ] as TabItem[],
     cachedViews: [] as string[],
   }),

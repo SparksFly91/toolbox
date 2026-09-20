@@ -11,7 +11,9 @@
       <AppBreadcrumb v-if="!top && appStore.showBreadcrumb" />
       <AppMenu v-if="top" mode="horizontal" class="f-1" />
     </div>
-    <div class="header-right flex-center"></div>
+    <div class="header-right flex-center">
+      <AppLanguage />
+    </div>
   </header>
 </template>
 
@@ -21,6 +23,7 @@ import { useAppStore } from "@/stores/app"
 import AppLogo from "./AppLogo.vue"
 import AppMenu from "./AppMenu.vue"
 import AppBreadcrumb from "./AppBreadcrumb.vue"
+import AppLanguage from "./AppLanguage.vue"
 
 withDefaults(defineProps<{ top?: boolean }>(), { top: false })
 
