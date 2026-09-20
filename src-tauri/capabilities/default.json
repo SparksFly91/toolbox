@@ -5,6 +5,27 @@
   "windows": ["main"],
   "permissions": [
     "core:default",
-    "opener:default"
+    "core:window:default",
+    "core:window:allow-start-dragging",
+    "core:window:allow-close",
+    "core:window:allow-minimize",
+    "core:window:allow-set-shadow",
+    "core:window:allow-set-size",
+    "core:window:allow-show",
+    "core:window:allow-hide",
+    "core:window:allow-is-visible",
+    "core:window:allow-set-focus",
+    "core:tray:default",
+    "core:menu:default",
+    "core:image:default",
+    "core:event:default",
+    "opener:default",
+    "dialog:default",
+    "dialog:allow-open",
+    "updater:default",
+    "updater:allow-check",
+    "process:default",
+    "process:allow-restart",
+    "process:allow-exit"
   ]
 }
