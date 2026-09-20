@@ -1,7 +1,7 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "toolbox",
-  "version": "0.1.0",
+  "version": "../package.json",
   "identifier": "toolbox",
   "build": {
     "beforeDevCommand": "pnpm dev",
@@ -13,8 +13,8 @@
     "windows": [
       {
         "title": "ToolBox",
-        "width": 800,
-        "height": 600
+        "width": 1440,
+        "height": 780
       }
     ],
     "security": {
