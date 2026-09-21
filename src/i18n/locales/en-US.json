@@ -17,9 +17,10 @@
   },
   "menu": {
     "home": "Home",
-    "tools": "Toolbox",
+    "devtools": "Development Toolbox",
     "tools_json": "JSON Formatter",
     "tools_regex": "Regex Tester",
+    "tools_base_converter": "Base Converter",
     "settings": "Settings",
     "imgtools": "Image Tools",
     "imgtools_format": "Format Converter"
@@ -59,6 +60,23 @@
     "regex_pattern": "Pattern",
     "regex_text": "Test text",
     "regex_execute": "Match",
-    "keepalive_hint": "Counter to test KeepAlive cache"
+    "keepalive_hint": "Counter to test KeepAlive cache",
+    "base_from": "From Base",
+    "base_to": "To Base",
+    "base_swap": "Swap bases",
+    "base_input_placeholder": "Enter a base-{base} number",
+    "base_invalid": "Invalid input: expected a {base} number using characters {chars}",
+    "base_result": "Result",
+    "base_all": "All Bases",
+    "base_copy": "Copy",
+    "base_copied": "Copied",
+    "base_copy_failed": "Copy failed",
+    "base_other": "Base",
+    "base_name_2": "Binary",
+    "base_name_8": "Octal",
+    "base_name_10": "Decimal",
+    "base_name_16": "Hexadecimal",
+    "base_name_32": "Base 32",
+    "base_name_36": "Base 36"
   }
 }

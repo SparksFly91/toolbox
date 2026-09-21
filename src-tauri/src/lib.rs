@@ -1,7 +1,7 @@
 mod commands;
 mod services;
 
-use commands::system::*;
+use commands::{devtools::*, system::*};
 
 use services::db::init_pool;
 use tauri::Manager;

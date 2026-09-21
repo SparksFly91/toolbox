@@ -34,10 +34,10 @@
   },
   "plugins": {
     "updater": {
-      "active": true,
+      "active": false,
       "dialog": true,
-      "endpoints": [""],
-      "pubkey": ""
+      "endpoints": ["https://github.com/SparksFly91/toolbox/releases/latest/download/latest.json"],
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDYyQjM0MUIxMDNGRkMxOUQKUldTZHdmOERzVUd6WWx5TzJlczBjU2dWSXdzSjhwVjRtOFJZUDJ2ajB1MHdTS1p3NmhuZlIwNloK"
     }
   }
 }

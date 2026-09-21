@@ -22,13 +22,13 @@ const routes: RouteRecordRaw[] = [
         meta: { titleKey: "menu.home", icon: "HomeOutlined", affix: true },
       },
       {
-        path: "/tools",
-        name: "tools",
-        redirect: "/tools/json",
-        meta: { titleKey: "menu.tools", icon: "ToolOutlined" },
+        path: "/devtools",
+        name: "DevTools",
+        redirect: "/devtools/json",
+        meta: { titleKey: "menu.devtools", icon: "ToolOutlined" },
         children: [
           {
-            path: "/tools/json",
+            path: "/devtools/json",
             name: "json",
             component: () => import("@/views/tools/json/index.vue"),
             meta: { titleKey: "menu.tools_json", icon: "CodeOutlined" },
@@ -38,6 +38,12 @@ const routes: RouteRecordRaw[] = [
             name: "regex",
             component: () => import("@/views/tools/regex/index.vue"),
             meta: { titleKey: "menu.tools_regex", icon: "SearchOutlined" },
+          },
+          {
+            path: "/devtools/baseConverter",
+            name: "BaseConverter",
+            component: () => import("@/views/devtools/BaseConverter.vue"),
+            meta: { titleKey: "menu.tools_base_converter", icon: "ThunderboltOutlined" },
           },
         ],
       },

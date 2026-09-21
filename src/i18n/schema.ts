@@ -62,5 +62,22 @@ export interface Schema {
     regex_text: string
     regex_execute: string
     keepalive_hint: string
+    base_from: string
+    base_to: string
+    base_swap: string
+    base_input_placeholder: string
+    base_invalid: string
+    base_result: string
+    base_all: string
+    base_copy: string
+    base_copied: string
+    base_copy_failed: string
+    base_other: string
+    base_name_2: string
+    base_name_8: string
+    base_name_10: string
+    base_name_16: string
+    base_name_32: string
+    base_name_36: string
   }
 }

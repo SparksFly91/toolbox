@@ -1,6 +1,6 @@
 <template>
   <a-menu v-model:selectedKeys="selectedKeys" v-model:openKeys="openKeys" :mode="mode" :items="menuItems"
-    :inline-collapsed="mode === 'inline' && appStore.siderCollapsed" @click="onMenuClick" />
+    :inline-collapsed="mode !== 'inline' && appStore.siderCollapsed" @click="onMenuClick" />
 </template>
 
 <script setup lang="ts">

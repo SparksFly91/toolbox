@@ -41,13 +41,12 @@
             <CheckOutlined v-if="appStore.primaryColor === preset.value" class="text-white" />
           </div>
         </template>
-        <a-color-picker
+        <input
           class="color-picker-cell"
+          type="color"
           :value="appStore.primaryColor"
-          :allow-clear="false"
-          show-text
-          size="small"
-          @change="onCustomColor"
+          :title="t('setting.primaryColor')"
+          @input="(e: any) => onCustomColor(e.target.value)"
         />
       </div>
     </div>
@@ -128,8 +127,7 @@ const localeOptions = computed(() =>
   SUPPORTED.map(o => ({ label: o.label, value: o.value }))
 )
 
-function onCustomColor(v: any) {
-  const hex = typeof v === "string" ? v : v?.toHexString?.() ?? appStore.primaryColor
+function onCustomColor(hex: string) {
   appStore.update({ primaryColor: hex })
 }
 </script>
@@ -183,7 +181,12 @@ function onCustomColor(v: any) {
 
 .color-picker-cell {
   width: 100%;
-  justify-content: center;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: var(--hover-bg);
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .switch-row {

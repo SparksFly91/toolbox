@@ -17,9 +17,10 @@
   },
   "menu": {
     "home": "首页",
-    "tools": "工具箱",
+    "devtools": "开发工具箱",
     "tools_json": "JSON 格式化",
     "tools_regex": "正则测试",
+    "tools_base_converter": "进制转换",
     "settings": "系统设置",
     "imgtools": "图片工具",
     "imgtools_format": "格式转换"
@@ -59,6 +60,23 @@
     "regex_pattern": "正则表达式",
     "regex_text": "测试文本",
     "regex_execute": "执行匹配",
-    "keepalive_hint": "计数器测试 KeepAlive 缓存"
+    "keepalive_hint": "计数器测试 KeepAlive 缓存",
+    "base_from": "源进制",
+    "base_to": "目标进制",
+    "base_swap": "交换进制",
+    "base_input_placeholder": "请输入 {base} 进制数字",
+    "base_invalid": "输入不合法：请输入有效的{base}数字，可用字符 {chars}",
+    "base_result": "转换结果",
+    "base_all": "常用进制一览",
+    "base_copy": "复制",
+    "base_copied": "复制成功",
+    "base_copy_failed": "复制失败",
+    "base_other": "进制",
+    "base_name_2": "二进制",
+    "base_name_8": "八进制",
+    "base_name_10": "十进制",
+    "base_name_16": "十六进制",
+    "base_name_32": "三十二进制",
+    "base_name_36": "三十六进制"
   }
 }
