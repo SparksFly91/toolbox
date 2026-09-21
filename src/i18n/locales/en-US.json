@@ -21,6 +21,7 @@
     "tools_json": "JSON Formatter",
     "tools_regex": "Regex Tester",
     "tools_base_converter": "Base Converter",
+    "tools_encryption_decryption": "Encryption/Decryption",
     "settings": "Settings",
     "imgtools": "Image Tools",
     "imgtools_format": "Format Converter"

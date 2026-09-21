@@ -21,6 +21,7 @@
     "tools_json": "JSON 格式化",
     "tools_regex": "正则测试",
     "tools_base_converter": "进制转换",
+    "tools_encryption_decryption": "加密解密",
     "settings": "系统设置",
     "imgtools": "图片工具",
     "imgtools_format": "格式转换"

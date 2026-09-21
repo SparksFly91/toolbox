@@ -45,6 +45,12 @@ const routes: RouteRecordRaw[] = [
             component: () => import("@/views/devtools/BaseConverter.vue"),
             meta: { titleKey: "menu.tools_base_converter", icon: "ThunderboltOutlined" },
           },
+          {
+            path: "/devtools/encryptionDecryption",
+            name: "EncryptionDecryption",
+            component: () => import("@/views/devtools/EncryptionDecryption.vue"),
+            meta: { titleKey: "menu.tools_encryption_decryption", icon: "ThunderboltOutlined" },
+          },
         ],
       },
       {
