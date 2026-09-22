@@ -34,7 +34,7 @@ const routes: RouteRecordRaw[] = [
             meta: { titleKey: "menu.tools_json", icon: "CodeOutlined" },
           },
           {
-            path: "/tools/regex",
+            path: "/devtools/regex",
             name: "regex",
             component: () => import("@/views/tools/regex/index.vue"),
             meta: { titleKey: "menu.tools_regex", icon: "SearchOutlined" },

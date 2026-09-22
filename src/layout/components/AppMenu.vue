@@ -32,7 +32,7 @@ function toItems(routes: any[]): ItemType[] {
     .map(r => {
       const children = r.children?.filter((c: any) => !c.meta?.hidden) ?? []
       return {
-        key: r.redirect ? (children[0]?.path ?? r.path) : r.path,
+        key: r.path,
         icon: icon(r.meta?.icon) ?? undefined,
         label: t(String(r.meta?.titleKey ?? r.meta?.title ?? r.name)),
         children: children.length ? toItems(children) : undefined,
@@ -49,11 +49,13 @@ const openKeys = ref<string[]>([])
 
 function syncMenuState() {
   selectedKeys.value = [route.path]
-  openKeys.value = route.path
+  const ancestors = route.path
     .split("/")
     .slice(1, -1)
     .filter(Boolean)
     .map((_: string, i: number, arr: string[]) => "/" + arr.slice(0, i + 1).join("/"))
+  // 并入当前路径的祖先节点，保证所在父菜单保持展开，同时保留用户已展开的菜单
+  openKeys.value = Array.from(new Set([...openKeys.value, ...ancestors]))
 }
 
 watch(() => route.path, syncMenuState, { immediate: true })
