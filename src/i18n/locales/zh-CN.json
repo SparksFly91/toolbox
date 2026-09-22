@@ -55,6 +55,10 @@
     "backHome": "回到首页"
   },
   "tools": {
+    "json_repair_title": "输入不是严格 JSON，已自动修复以下内容并完成格式化",
+    "json_repair_trailing": "删除对象/数组末尾多余的逗号",
+    "json_repair_comment": "删除 // 与 /* */ 注释",
+    "json_repair_single": "单引号字符串改为双引号",
     "json_input_placeholder": "输入 JSON 字符串",
     "json_format_btn": "格式化",
     "json_output": "格式化结果",

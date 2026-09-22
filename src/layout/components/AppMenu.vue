@@ -1,6 +1,6 @@
 <template>
   <a-menu v-model:selectedKeys="selectedKeys" v-model:openKeys="openKeys" :mode="mode" :items="menuItems"
-    :inline-collapsed="mode !== 'inline' && appStore.siderCollapsed" @click="onMenuClick" />
+    :inline-collapsed="mode === 'inline' && appStore.siderCollapsed" @click="onMenuClick" />
 </template>
 
 <script setup lang="ts">
@@ -49,16 +49,36 @@ const openKeys = ref<string[]>([])
 
 function syncMenuState() {
   selectedKeys.value = [route.path]
-  const ancestors = route.path
+  // 并入当前路径的祖先节点，保证所在父菜单保持展开，同时保留用户已展开的菜单
+  openKeys.value = Array.from(new Set([...openKeys.value, ...ancestorsOf(route.path)]))
+}
+
+function ancestorsOf(path: string): string[] {
+  return path
     .split("/")
     .slice(1, -1)
     .filter(Boolean)
     .map((_: string, i: number, arr: string[]) => "/" + arr.slice(0, i + 1).join("/"))
-  // 并入当前路径的祖先节点，保证所在父菜单保持展开，同时保留用户已展开的菜单
-  openKeys.value = Array.from(new Set([...openKeys.value, ...ancestors]))
 }
 
 watch(() => route.path, syncMenuState, { immediate: true })
+
+/** 折叠前的展开项，展开侧边栏时恢复 */
+let openKeysBeforeCollapse: string[] = []
+
+// 折叠时内联菜单切换为悬浮弹出模式，此时 openKeys 必须为空；
+// 再次展开后恢复之前的展开状态并保证当前路由父级展开
+watch(
+  () => appStore.siderCollapsed,
+  collapsed => {
+    if (collapsed) {
+      openKeysBeforeCollapse = openKeys.value
+      openKeys.value = []
+    } else {
+      openKeys.value = Array.from(new Set([...openKeysBeforeCollapse, ...ancestorsOf(route.path)]))
+    }
+  }
+)
 
 function onMenuClick({ key }: { key: string }) {
   router.push(String(key))

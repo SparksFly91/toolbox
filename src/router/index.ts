@@ -30,13 +30,13 @@ const routes: RouteRecordRaw[] = [
           {
             path: "/devtools/json",
             name: "json",
-            component: () => import("@/views/tools/json/index.vue"),
+            component: () => import("@/views/devtools/JsonFormat.vue"),
             meta: { titleKey: "menu.tools_json", icon: "CodeOutlined" },
           },
           {
             path: "/devtools/regex",
             name: "regex",
-            component: () => import("@/views/tools/regex/index.vue"),
+            component: () => import("@/views/devtools/RegexTest.vue"),
             meta: { titleKey: "menu.tools_regex", icon: "SearchOutlined" },
           },
           {

@@ -58,6 +58,10 @@ export interface Schema {
     json_input_placeholder: string
     json_format_btn: string
     json_output: string
+    json_repair_title: string
+    json_repair_trailing: string
+    json_repair_comment: string
+    json_repair_single: string
     regex_pattern: string
     regex_text: string
     regex_execute: string

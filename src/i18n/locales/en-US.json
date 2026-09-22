@@ -55,6 +55,10 @@
     "backHome": "Back to Home"
   },
   "tools": {
+    "json_repair_title": "Input is not strict JSON; auto-repaired before formatting",
+    "json_repair_trailing": "Removed trailing commas in objects/arrays",
+    "json_repair_comment": "Removed // and /* */ comments",
+    "json_repair_single": "Converted single-quoted strings to double quotes",
     "json_input_placeholder": "Enter JSON string",
     "json_format_btn": "Format",
     "json_output": "Formatted result",

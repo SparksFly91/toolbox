@@ -68,8 +68,11 @@ const isTop = computed(() => appStore.layoutMode === "top")
 </script>
 
 <style lang="scss" scoped>
+/* 主内容区是唯一滚动容器（父级 .layout / .layout-main 已锁定视口高度） */
 .layout-content {
   flex: 1;
+  min-height: 0;
+  overflow: auto;
   padding: 12px;
   background-color: var(--bg-layout);
 }

@@ -46,12 +46,7 @@
 
       <!-- ==================== 常用正则 ==================== -->
       <a-tab-pane key="library" :tab="t('tools.regex_tab_library')">
-        <a-input
-          v-model:value="presetKeyword"
-          :placeholder="t('tools.regex_search_preset')"
-          allow-clear
-          class="mb-4"
-        />
+        <a-input v-model:value="presetKeyword" :placeholder="t('tools.regex_search_preset')" allow-clear class="mb-4" />
 
         <template v-for="cat in filteredCategories" :key="cat.key">
           <div v-if="cat.presets.length" class="mb-4">
@@ -87,22 +82,13 @@
 
         <div class="label mb-2">{{ t("tools.regex_builder_rules") }}</div>
         <div class="flex flex-col gap-2">
-          <div v-for="(rule, index) in rules" :key="rule.id" class="rule-row flex items-center gap-2 flex-wrap p-2 rounded">
+          <div v-for="(rule, index) in rules" :key="rule.id"
+            class="rule-row flex items-center gap-2 flex-wrap p-2 rounded">
             <a-select v-model:value="rule.type" :options="typeOptions" class="rule-select" />
-            <a-input
-              v-if="rule.type === 'custom'"
-              v-model:value="rule.value"
-              class="rule-input mono"
-              :placeholder="t('tools.regex_builder_custom_placeholder')"
-              allow-clear
-            />
-            <a-input
-              v-else-if="rule.type === 'literal'"
-              v-model:value="rule.value"
-              class="rule-input mono"
-              :placeholder="t('tools.regex_builder_literal_placeholder')"
-              allow-clear
-            />
+            <a-input v-if="rule.type === 'custom'" v-model:value="rule.value" class="rule-input mono"
+              :placeholder="t('tools.regex_builder_custom_placeholder')" allow-clear />
+            <a-input v-else-if="rule.type === 'literal'" v-model:value="rule.value" class="rule-input mono"
+              :placeholder="t('tools.regex_builder_literal_placeholder')" allow-clear />
             <a-select v-model:value="rule.quantifier" :options="quantifierOptions" class="rule-select" />
             <template v-if="needMin(rule)">
               <a-input-number v-model:value="rule.min" :min="0" :max="999" class="rule-number" />
@@ -142,13 +128,13 @@ import { ref } from "vue"
 import { watchDebounced } from "@vueuse/core"
 import { message } from "ant-design-vue"
 import { t } from "@/i18n"
-import { REGEX_PRESETS, PRESET_CATEGORIES, type RegexPreset } from "./presets"
+import { REGEX_PRESETS, PRESET_CATEGORIES, type RegexPreset } from "./regex/presets"
 import {
   buildRegex,
   type BuilderRule,
   type BuilderType,
   type QuantifierMode,
-} from "./builder"
+} from "./regex/builder"
 
 defineOptions({ name: "regex" })
 
@@ -385,7 +371,7 @@ async function copy(content?: string) {
   background-color: var(--hover-bg);
 }
 
-.match-row + .match-row {
+.match-row+.match-row {
   border-top: 1px solid rgba(128, 128, 128, 0.15);
 }
 

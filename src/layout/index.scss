@@ -1,8 +1,13 @@
 @use "@/assets/theme/_variables.scss" as *;
 
+/* ————— 布局滚动模型 —————
+   .layout 锁定为视口高度并禁止自身滚动：Header / 标签页 / 侧边菜单永远固定，
+   只有 .layout-content 作为唯一滚动容器（min-height:0 允许 flex 子项收缩，
+   overflow:auto 让内容在主区域内滚动，宽表格也已支持横向滚动）。 */
 .layout {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   background-color: var(--bg-layout);
 
   .layout-sider {
@@ -39,6 +44,7 @@
     margin-inline-start: $sider-width;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     transition: margin 0.2s ease;
 
     &.is-collapsed {
@@ -47,7 +53,7 @@
   }
 
   &.is-top {
-    display: block;
+    flex-direction: column;
 
     .layout-main {
       margin-inline-start: 0;
